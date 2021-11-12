@@ -3,7 +3,9 @@ const router = require('express').Router();
 const { Exercise, Days} = require('../models');
 const db = require("../models");
 const path = require("path");
+const apiRoutes = require('./api');
 
+router.use('/api', apiRoutes);
 
 
 router.get("/", (req, res) => {
