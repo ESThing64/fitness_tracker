@@ -3,15 +3,38 @@ const db = require('../../models');
 
 
 router.post("/workouts", ({body}, res) => {
-    db.Exercise.create(body)
-    .then(({ _id }) => db.Exercise.findOneAndUpdate({}, { $push: { exercises: _id } }, { new: true }))
-    .then(dbExercises => {
-      res.json(dbExercises);
+    db.Workout.create(body)
+    .then(dbWorkout => {
+      res.json(dbWorkout);
     })
     .catch(err => {
       res.json(err);
     });
 });
+  
+router.get("/workouts", ({body}, res) => {
+    db.Workout.find({})
+    .then(dbWorkout => {
+      res.json(dbWorkout);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+
+  
+router.put("/workouts/:id", ({body}, res) => {
+    db.Workout.find({})
+    .then(dbWorkout => {
+      res.json(dbWorkout);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+
   
 
 router.get("/workouts/range", ({body}, res) => {
@@ -20,9 +43,11 @@ router.get("/workouts/range", ({body}, res) => {
             totalDuration: { $sum: "$exercises.duration"}
         }
     }])
+
+    
     
     .then(results => {
-        console.log(results)
+        // const sevenDays = results.slice(Math.max(arr.length - 5, 1))
       res.json(results);
     })
     .catch(err => {

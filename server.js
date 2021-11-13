@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const routes = require('./controllers'); 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const db = require("./models");
-// const User = require("./userModel.js");
+// const db = require("./models");
+
 
 
 
