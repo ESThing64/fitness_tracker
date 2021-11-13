@@ -49,7 +49,7 @@ const WorkoutSchema = new Schema({
     
 
     day:{
-        type: Number,
+        type: Date,
     },
 
 });
