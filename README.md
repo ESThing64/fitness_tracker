@@ -1,7 +1,7 @@
 # Fitness Tracker
 
 ## Deployed application 
-[Click here](https://dashboard.heroku.com/apps/fitness-tracker64)
+[Click here](https://fitness-tracker64.herokuapp.com/?id=61908863dc91b2001617adde)
 
 ## Description
 
