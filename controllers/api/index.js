@@ -53,8 +53,10 @@ router.get("/workouts/range", ({body}, res) => {
     
     
     .then(results => {
-        // const sevenDays = results.slice(Math.max(arr.length - 5, 1))
-      res.json(results);
+      // console.log(results)
+        const sevenDays = results.slice(- 7)
+      console.log(sevenDays)
+      res.json(sevenDays);
     })
     .catch(err => {
       res.json(err);
