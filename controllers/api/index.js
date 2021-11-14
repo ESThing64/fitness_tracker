@@ -13,7 +13,11 @@ router.post("/workouts", ({body}, res) => {
 });
   
 router.get("/workouts", ({body}, res) => {
-    db.Workout.find({})
+  db.Workout.aggregate([{
+    $addFields:{
+        totalDuration: { $sum: "$exercises.duration"}
+    }
+}])
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
@@ -27,7 +31,7 @@ router.get("/workouts", ({body}, res) => {
 router.put("/workouts/:id", (req, res) => {
   console.log(req.params.id)
   console.log(req.body);
-    db.Workout.findOneAndUpdate({_id: req.params.id}, { $push: {exercise: req.body}}, {new: true})
+    db.Workout.findOneAndUpdate({_id: req.params.id}, { $push: {exercises: req.body}}, {new: true})
     .then(dbWorkout => {
       res.json(dbWorkout);
     })

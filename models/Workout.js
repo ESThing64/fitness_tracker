@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const WorkoutSchema = new Schema({
 
-    exercise: [
+    exercises: [
         {
 
         type: {
