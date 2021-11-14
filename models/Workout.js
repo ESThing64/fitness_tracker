@@ -43,6 +43,11 @@ const WorkoutSchema = new Schema({
             required: "Why didn't you enter the name of the exercise?"
         },
 
+        distance: {
+            type: Number,
+            required: "What about this distance?"
+        }
+
     }
 
     ],
